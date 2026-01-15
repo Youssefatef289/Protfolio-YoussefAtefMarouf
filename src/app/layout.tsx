@@ -25,23 +25,16 @@ const jost = Jost({
 
 export default function RootLayout({
   children,
-  session,
 }: Readonly<{
   children: React.ReactNode;
-  session:any
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
-      </head>
       <body className={`${josefinSans.variable} ${jost.variable}`}>
       <NextTopLoader />
       <LanguageProvider>
       <AuthDialogProvider>
-      <SessionProviderComp session={session}>
+      <SessionProviderComp>
         <ThemeProvider
           attribute="class"
           enableSystem={true}
