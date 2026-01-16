@@ -99,6 +99,23 @@ const FloatingActionButton = () => {
             aria-label="Facebook">
             <Icon icon="logos:facebook" width={24} height={24} />
           </a>
+
+          {/* Instagram */}
+          <a
+            href="https://www.instagram.com/yousseeff_ateeff/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`absolute right-0 bottom-0 z-[-1] flex items-center justify-center cursor-pointer h-12 w-12 text-xl text-white bg-gradient-to-b from-[#E4405F] to-[#C13584] shadow-lg rounded-full transition-all duration-400 ${
+              isOpen ? 'opacity-100 bottom-52' : 'opacity-0 bottom-0'
+            }`}
+            style={{
+              transition: isOpen
+                ? 'all 0.4s cubic-bezier(0, 0.01, 0, 1.27)'
+                : 'all 0.2s linear',
+            }}
+            aria-label="Instagram">
+            <Icon icon="logos:instagram-icon" width={24} height={24} />
+          </a>
         </div>
       </div>
 

@@ -2,100 +2,104 @@
 import { getImgPath } from '@/utils/image'
 import Image from 'next/image'
 import { useLanguage } from '@/app/context/LanguageContext'
+import { Icon } from '@iconify/react'
 
 const Hero = () => {
   const { t } = useLanguage()
   return (
-    <section id='hero' className='relative md:pt-44 pt-28 bg-white  dark:bg-darklight bg-cover text-white'>
-      <div className='container mx-auto max-w-6xl px-4 grid grid-cols-12 gap-4 relative z-10'>
+    <section id='hero' className='relative md:pt-44 pt-28 bg-gray-100 dark:bg-darklight'>
+      <div className='container mx-auto max-w-6xl px-4 grid grid-cols-12 gap-8 relative z-10 items-center'>
+        {/* Left Section - Text Content and Buttons */}
         <div
-          className='md:col-span-6 col-span-12 p-4 md:px-4 px-0 space-y-4 flex flex-col items-start justify-center'
+          className='md:col-span-7 col-span-12 p-4 md:px-4 px-0 space-y-6 flex flex-col items-start justify-center'
           data-aos='fade-right'
           data-aos-delay='200'
           data-aos-duration='1000'>
-          <div className='flex gap-2 items-center'>
+          <div className='flex gap-2 items-center mb-2'>
             <span className='w-3 h-3 rounded-full bg-success'></span>
             <span className='font-medium text-midnight_text text-sm dark:text-white/50'>
               {t('Frontend Developer')}
             </span>
           </div>
-          <h1 className='text-midnight_text font-bold dark:text-white text-4xl  md:text-5xl md:leading-[1.15]'>
-            Youssef Atef
+          <h1 className='text-midnight_text dark:text-white font-bold text-3xl md:text-4xl lg:text-5xl leading-tight'>
+            {t('hero.name')}
           </h1>
-          <p className='text-grey dark:text-white/70 text-xl font-semibold'>
+          <p className='text-grey dark:text-white/70 text-base md:text-lg leading-relaxed'>
             {t('hero.description')}
           </p>
-          <div className='flex gap-4 flex-wrap'>
+          <div className='flex gap-4 flex-wrap pt-2'>
             <a
               href='#portfolio'
-              className='py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-300 px-8'>
-              {t('View My Work')}
+              className='py-3 bg-purple-600 dark:bg-purple-500 text-white rounded-lg hover:bg-purple-700 dark:hover:bg-purple-600 transition duration-300 px-8 font-medium'>
+              {t('My Projects')}
             </a>
             <a
               href='/images/Youssef/Youssef Atef Maarouf  CV (1).pdf'
               download
-              className='py-3 bg-transparent border-2 border-blue-600 text-blue-600 dark:text-blue-400 dark:border-blue-400 rounded-md hover:bg-blue-50 dark:hover:bg-blue-900/20 transition duration-300 px-8'>
+              className='py-3 bg-transparent border-2 border-gray-800 dark:border-gray-300 text-gray-800 dark:text-gray-200 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition duration-300 px-8 font-medium flex items-center gap-2'>
+              <Icon icon="solar:download-bold" width={18} height={18} />
               {t('Download CV')}
             </a>
           </div>
-          <div className='flex items-center mt-12 gap-4'>
-            <div className='flex items-center'>
-              <Image
-                src={getImgPath('/images/Youssef/Hero - Youssef.jpeg')}
-                alt='hero-image'
-                width={40}
-                height={40}
-                quality={100}
-                className='w-10! h-10! rounded-full border border-solid border-white -ml-0'
-              />
-              {/* <Image
-                src={getImgPath('/images/hero/hero-profile-2.jpg')}
-                alt='hero-image'
-                width={40}
-                height={40}
-                quality={100}
-                className='w-10! h-10! rounded-full border border-solid border-white -ml-3'
-              />
-              <Image
-                src={getImgPath('/images/hero/hero-profile-3.jpg')}
-                alt='hero-image'
-                width={40}
-                height={40}
-                quality={100}
-                className='w-10! h-10! rounded-full border border-solid border-white -ml-3'
-              /> */}
-            </div>
-            <div>
-              <p className='text-sm font-normal text-grey max-w-56'>
-                {t('Need help?')}{' '}
-                <a 
-                  href='#contact' 
-                  onClick={(e) => {
-                    e.preventDefault();
-                    const element = document.querySelector('#contact');
-                    if (element) {
-                      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                  }}
-                  className='text-primary hover:text-blue-700 cursor-pointer'>
-                  {t('Contact our experts')}
-                </a>{' '}
-                {t('Tell us about your project')}
-              </p>
-            </div>
-          </div>
         </div>
 
-        <div className="md:col-span-6 col-span-12 relative before:absolute before:content-[''] before:bg-[url('/images/hero/line-leyar.svg')] before:bg-no-repeat before:left-1/2 before:top-0 before:h-24 before:w-52 before:-z-10 before:translate-x-70% before:-translate-y-40% lg:before:inline-block before:hidden after:absolute after:content-[''] after:bg-[url('/images/hero/round-leyar.svg')] after:bg-no-repeat xl:after:inline-block after:hidden after:left-0 after:bottom-0 after:h-6.25 after:w-6.25 after:-z-10 after:-translate-x-1/2 after:translate-y-1/2">
-          <Image
-            src={getImgPath('/images/Youssef/Hero - Youssef.jpeg')}
-            alt='Youssef Hero Image'
-            width={600}
-            height={500}
-            quality={100}
-            className='w-full h-auto rounded-lg object-cover'
-            priority
-          />
+        {/* Right Section - Profile Card with Image and Social Icons */}
+        <div
+          className='md:col-span-5 col-span-12 flex flex-col items-center'
+          data-aos='fade-left'
+          data-aos-delay='200'
+          data-aos-duration='1000'>
+          {/* White Card with Profile Image */}
+          <div className='bg-white dark:bg-darkmode rounded-2xl p-6 shadow-lg w-full max-w-md relative mb-8'>
+            <Image
+              src={getImgPath('/images/Youssef/Hero - Youssef.jpeg')}
+              alt='Youssef Hero Image'
+              width={400}
+              height={500}
+              quality={100}
+              className='w-full h-auto rounded-xl object-cover'
+              priority
+            />
+          </div>
+          
+          {/* Social Media Icons - Overlapping the card */}
+          <div className='flex items-center gap-3 -mt-12 relative z-10 flex-wrap justify-center'>
+            <a
+              href='https://www.facebook.com/share/14T5rwc9rBk/?mibextid=wwXIfr'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='w-12 h-12 flex items-center justify-center rounded-full bg-white dark:bg-darkmode shadow-md hover:shadow-lg transition-all hover:scale-110 text-purple-600 dark:text-purple-400'>
+              <Icon icon="logos:facebook" width={20} height={20} />
+            </a>
+            <a
+              href='https://www.instagram.com/yousseeff_ateeff/'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='w-12 h-12 flex items-center justify-center rounded-full bg-white dark:bg-darkmode shadow-md hover:shadow-lg transition-all hover:scale-110 text-purple-600 dark:text-purple-400'>
+              <Icon icon="logos:instagram-icon" width={20} height={20} />
+            </a>
+            <a
+              href='https://www.linkedin.com/in/youssef-ateef-0358b3235/'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='w-12 h-12 flex items-center justify-center rounded-full bg-white dark:bg-darkmode shadow-md hover:shadow-lg transition-all hover:scale-110 text-purple-600 dark:text-purple-400'>
+              <Icon icon="logos:linkedin-icon" width={20} height={20} />
+            </a>
+            <a
+              href='https://github.com/Youssefatef289'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='w-12 h-12 flex items-center justify-center rounded-full bg-white dark:bg-darkmode shadow-md hover:shadow-lg transition-all hover:scale-110 text-purple-600 dark:text-purple-400'>
+              <Icon icon="logos:github-icon" width={20} height={20} />
+            </a>
+            <a
+              href='https://wa.me/201208430849'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='w-12 h-12 flex items-center justify-center rounded-full bg-white dark:bg-darkmode shadow-md hover:shadow-lg transition-all hover:scale-110 text-purple-600 dark:text-purple-400'>
+              <Icon icon="logos:whatsapp-icon" width={20} height={20} />
+            </a>
+          </div>
         </div>
       </div>
     </section>
