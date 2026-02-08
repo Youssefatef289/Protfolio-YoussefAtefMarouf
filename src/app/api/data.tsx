@@ -176,6 +176,16 @@ export const portfolioinfo = [
         Class: 'md:mt-0'
     },
     {
+        image: getImgPath('/images/portfolio/touch-furniture.png'),
+        alt: 'Touch Furniture',
+        title: 'Touch Furniture',
+        slug: 'touch-furniture',
+        info: 'Modern Furniture E-commerce',
+        demoUrl: 'https://touch-furniture.vercel.app/',
+        technologies: ['React', 'Next.js', 'TypeScript'],
+        Class: 'md:mt-24'
+    },
+    {
         image: getImgPath('/images/portfolio/profile-furniture.png'),
         alt: 'Profile for Furniture and Antiques',
         title: 'Profile for Furniture and Antiques',
@@ -183,6 +193,6 @@ export const portfolioinfo = [
         info: 'Furniture & Antiques Store',
         demoUrl: 'https://profile-for-furniture-and-antiques.vercel.app/',
         technologies: ['React', 'Next.js', 'TypeScript'],
-        Class: 'md:mt-24'
+        Class: 'md:mt-0'
     },
 ]
