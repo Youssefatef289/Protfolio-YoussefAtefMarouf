@@ -4,6 +4,7 @@ import Hero from '@/components/Home/Hero';
 import Progresswork from '@/components/Home/WorkProgress';
 import Services from '@/components/Home/Services';
 import Skills from '@/components/Home/Skills';
+import ClientBenefits from '@/components/Home/ClientBenefits';
 import Portfolio from '@/components/SharedComponent/portfollio'
 export const metadata: Metadata = {
   title: "Protfolio-YoussefAtefMarouf",
@@ -16,6 +17,7 @@ export default function Home() {
       <Progresswork isColorMode={false} />
       <Services />
       <Skills />
+      <ClientBenefits />
       <Portfolio />
     </main>
   )

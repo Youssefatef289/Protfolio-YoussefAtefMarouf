@@ -64,6 +64,21 @@ const translations: { [key: string]: { en: string; ar: string } } = {
   'HTML & CSS': { en: 'HTML & CSS', ar: 'HTML & CSS' },
   'Responsive Design': { en: 'Responsive Design', ar: 'التصميم المتجاوب' },
   'UI/UX Design': { en: 'UI/UX Design', ar: 'تصميم واجهة المستخدم' },
+  'Why Choose Me': { en: 'Why Choose Me', ar: 'لماذا تختارني' },
+  'How You Will Benefit From My Services': { en: 'How You Will Benefit From My Services', ar: 'كيف سوف تستفيد من خدماتي' },
+  'benefits.subtitle': { en: 'Discover the advantages of working with a professional frontend developer who delivers exceptional results', ar: 'اكتشف مزايا العمل مع مطور واجهات أمامية محترف يقدم نتائج استثنائية' },
+  'benefits.1.title': { en: 'Modern & Responsive Design', ar: 'تصميم حديث ومتجاوب' },
+  'benefits.1.description': { en: 'Get a website that looks perfect on all devices - desktop, tablet, and mobile. Your users will have an excellent experience regardless of their device.', ar: 'احصل على موقع يبدو مثالياً على جميع الأجهزة - سطح المكتب والجهاز اللوحي والهاتف المحمول. مستخدميك سيكون لديهم تجربة ممتازة بغض النظر عن جهازهم.' },
+  'benefits.2.title': { en: 'Fast Loading & Performance', ar: 'تحميل سريع وأداء عالي' },
+  'benefits.2.description': { en: 'Optimized code and best practices ensure your website loads quickly, improving user experience and SEO rankings.', ar: 'الكود المحسّن وأفضل الممارسات تضمن تحميل موقعك بسرعة، مما يحسن تجربة المستخدم وترتيب محركات البحث.' },
+  'benefits.3.title': { en: 'Scalable Solutions', ar: 'حلول قابلة للتوسع' },
+  'benefits.3.description': { en: 'Build your website with scalability in mind. As your business grows, your website can easily accommodate new features and increased traffic.', ar: 'قم ببناء موقعك مع مراعاة قابلية التوسع. مع نمو عملك، يمكن لموقعك بسهولة استيعاب الميزات الجديدة وزيادة حركة المرور.' },
+  'benefits.4.title': { en: 'Clean & Maintainable Code', ar: 'كود نظيف وقابل للصيانة' },
+  'benefits.4.description': { en: 'Receive well-structured, documented code that is easy to maintain and update. Future modifications will be simple and cost-effective.', ar: 'احصل على كود منظم وموثق يسهل صيانته وتحديثه. التعديلات المستقبلية ستكون بسيطة وفعالة من حيث التكلفة.' },
+  'benefits.5.title': { en: 'SEO Optimized', ar: 'محسّن لمحركات البحث' },
+  'benefits.5.description': { en: 'Your website will be built with SEO best practices, helping you rank higher in search results and attract more organic traffic.', ar: 'سيتم بناء موقعك باستخدام أفضل ممارسات SEO، مما يساعدك على الترتيب أعلى في نتائج البحث وجذب المزيد من الزيارات العضوية.' },
+  'benefits.6.title': { en: 'Ongoing Support', ar: 'دعم مستمر' },
+  'benefits.6.description': { en: 'Get continuous support and maintenance. I am here to help you with updates, bug fixes, and any questions you may have.', ar: 'احصل على دعم وصيانة مستمرة. أنا هنا لمساعدتك في التحديثات وإصلاح الأخطاء وأي أسئلة قد تكون لديك.' },
 }
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
