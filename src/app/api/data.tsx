@@ -175,4 +175,14 @@ export const portfolioinfo = [
         technologies: ['React', 'Next.js'],
         Class: 'md:mt-0'
     },
+    {
+        image: getImgPath('/images/portfolio/profile-furniture.png'),
+        alt: 'Profile for Furniture and Antiques',
+        title: 'Profile for Furniture and Antiques',
+        slug: 'profile-furniture-antiques',
+        info: 'Furniture & Antiques Store',
+        demoUrl: 'https://profile-for-furniture-and-antiques.vercel.app/',
+        technologies: ['React', 'Next.js', 'TypeScript'],
+        Class: 'md:mt-24'
+    },
 ]
