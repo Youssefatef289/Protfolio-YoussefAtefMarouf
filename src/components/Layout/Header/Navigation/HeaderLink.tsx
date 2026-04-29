@@ -36,10 +36,10 @@ const HeaderLink: React.FC<{ item: HeaderItem }> = ({ item }) => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <Link 
-        href={item.href} 
+      <Link
+        href={item.href}
         onClick={handleClick}
-        className={`text-base flex py-2 font-normal hover:text-primary dark:hover:text-primary text-black dark:text-white  ${path === item.href || (path === '/' && (item.href.startsWith('/#') || item.href.startsWith('#'))) ? 'text-primary dark:text-primary!' : '  '}`}>
+        className={`text-base flex py-2 text-black dark:text-white hover:text-primary dark:hover:text-primary ${path === item.href || (path === '/' && (item.href.startsWith('/#') || item.href.startsWith('#'))) ? 'font-semibold' : 'font-normal'}`}>
         {t(item.label)}
         {item.submenu && (
           <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24">

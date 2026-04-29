@@ -21,6 +21,7 @@ const techIcons: { [key: string]: string } = {
 
 const PortfolioCard = () => {
   const { t } = useLanguage()
+  const sliderRef = React.useRef<Slider | null>(null)
   
   const settings = {
     autoplay: true,
@@ -54,7 +55,23 @@ const PortfolioCard = () => {
   return (
     <div id='portfolio' className='dark:bg-darkmode pb-16'>
       <div className='container mx-auto max-w-7xl px-4 slider-container'>
-        <Slider {...settings}>
+        <div className='flex justify-end gap-3 mb-6'>
+          <button
+            type='button'
+            aria-label='Previous project'
+            onClick={() => sliderRef.current?.slickPrev()}
+            className='inline-flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 text-black dark:text-white dark:border-white/30 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors duration-300'>
+            <Icon icon='solar:arrow-left-linear' width={20} height={20} />
+          </button>
+          <button
+            type='button'
+            aria-label='Next project'
+            onClick={() => sliderRef.current?.slickNext()}
+            className='inline-flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 text-black dark:text-white dark:border-white/30 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors duration-300'>
+            <Icon icon='solar:arrow-right-linear' width={20} height={20} />
+          </button>
+        </div>
+        <Slider ref={sliderRef} {...settings}>
           {portfolioinfo.map((item, index) => (
             <div key={index} className='px-4'>
               <div className='bg-white dark:bg-darkmode rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 h-full flex flex-col'>

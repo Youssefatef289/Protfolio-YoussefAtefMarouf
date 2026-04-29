@@ -66,6 +66,36 @@ export const Servicebox = [
 
 export const portfolioinfo = [
     {
+        image: getImgPath('/images/portfolio/Brilliant Home.png'),
+        alt: 'Brilliant Home',
+        title: 'Brilliant Home',
+        slug: 'brilliant-home',
+        info: 'Interior Design & Furniture Landing Page',
+        demoUrl: 'https://brilliant-home.vercel.app/',
+        technologies: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS'],
+        Class: 'md:mt-0'
+    },
+    {
+        image: getImgPath('/images/portfolio/Al Fadi.png'),
+        alt: 'Al Fadi',
+        title: 'Al Fadi',
+        slug: 'al-fadi',
+        info: 'Wooden Doors & Furniture Company Website',
+        demoUrl: 'https://al-fadi.vercel.app/',
+        technologies: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS'],
+        Class: 'md:mt-24'
+    },
+    {
+        image: getImgPath('/images/portfolio/Emaar.png'),
+        alt: 'Emaar Company',
+        title: 'Emaar Company',
+        slug: 'emaar-company',
+        info: 'Real Estate Development & Marketing Website',
+        demoUrl: 'https://emaar-company.vercel.app/',
+        technologies: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS'],
+        Class: 'md:mt-0'
+    },
+    {
         image: getImgPath('/images/portfolio/Sky-Block.png'),
         alt: 'Sky Block',
         title: 'Sky Block',
