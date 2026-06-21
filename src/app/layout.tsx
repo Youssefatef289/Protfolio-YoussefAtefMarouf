@@ -1,4 +1,4 @@
-import { Josefin_Sans, Jost } from "next/font/google";
+import { Josefin_Sans, Jost, Geist } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Layout/Header";
 import Footer from "@/components/Layout/Footer";
@@ -9,6 +9,9 @@ import NextTopLoader from 'nextjs-toploader';
 import SessionProviderComp from "@/components/nextauth/SessionProvider";
 import { AuthDialogProvider } from "./context/AuthDialogContext";
 import { LanguageProvider } from "./context/LanguageContext";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const josefinSans = Josefin_Sans({ 
   subsets: ["latin"],
@@ -29,17 +32,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className={cn("font-sans", geist.variable)}>
       <body className={`${josefinSans.variable} ${jost.variable}`}>
       <NextTopLoader />
       <LanguageProvider>
       <AuthDialogProvider>
       <SessionProviderComp>
-        <ThemeProvider
-          attribute="class"
-          enableSystem={true}
-          defaultTheme="system"
-        >
+        <ThemeProvider attribute='class' forcedTheme='light' enableSystem={false}>
           <Aoscompo>
             <Header />
             {children}

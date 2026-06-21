@@ -96,6 +96,46 @@ export const portfolioinfo = [
         Class: 'md:mt-0'
     },
     {
+        image: getImgPath('/images/portfolio/Al-Geheny Real Estate Development.png'),
+        alt: 'Al-Geheny Real Estate Development',
+        title: 'Al-Geheny Real Estate',
+        slug: 'al-geheny-real-estate',
+        info: 'Real Estate Development Company Website',
+        demoUrl: 'https://el-geheny.vercel.app/',
+        technologies: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS'],
+        Class: 'md:mt-24'
+    },
+    {
+        image: getImgPath('/images/portfolio/Al-Umara Real Estate Development.png'),
+        alt: 'Al-Umara Real Estate Development',
+        title: 'Al-Umara Real Estate',
+        slug: 'al-umara-real-estate',
+        info: 'Real Estate Development & Marketing Website',
+        demoUrl: 'https://al-umaraa-for-development.vercel.app/',
+        technologies: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS'],
+        Class: 'md:mt-0'
+    },
+    {
+        image: getImgPath('/images/portfolio/Al Hafni Farms.png'),
+        alt: 'Al Hafni Farms',
+        title: 'Al Hafni Farms',
+        slug: 'al-hafni-farms',
+        info: 'Agricultural Products & Farms Website',
+        demoUrl: 'https://mzraa-al-hfny.vercel.app/',
+        technologies: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS'],
+        Class: 'md:mt-24'
+    },
+    {
+        image: getImgPath('/images/portfolio/Macello Meat butcher.png'),
+        alt: 'Macello Meat Butcher',
+        title: 'Macello Meat Butcher',
+        slug: 'macello-meat-butcher',
+        info: 'Meat & Butcher Shop E-commerce Website',
+        demoUrl: 'https://macello.vercel.app/',
+        technologies: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS'],
+        Class: 'md:mt-0'
+    },
+    {
         image: getImgPath('/images/portfolio/Sky-Block.png'),
         alt: 'Sky Block',
         title: 'Sky Block',
@@ -126,7 +166,7 @@ export const portfolioinfo = [
         Class: 'md:mt-0'
     },
     {
-        image: getImgPath('/images/portfolio/lithioo-for-perfumes.png'),
+        image: getImgPath('/images/portfolio/Lithioo Perfumes.png'),
         alt: 'Lithioo for Perfumes',
         title: 'Lithioo for Perfumes',
         slug: 'lithioo-for-perfumes',
@@ -163,46 +203,6 @@ export const portfolioinfo = [
         info: 'Herbs & Spices Store',
         demoUrl: 'https://youssefatef289.github.io/Herb----Wonders/',
         technologies: ['HTML', 'CSS', 'JavaScript'],
-        Class: 'md:mt-0'
-    },
-    {
-        image: getImgPath('/images/portfolio/Nature.png'),
-        alt: 'Nature',
-        title: 'Nature',
-        slug: 'nature',
-        info: 'Nature Landing Page',
-        demoUrl: 'https://youssefatef289.github.io/Nature/',
-        technologies: ['HTML', 'CSS', 'JavaScript'],
-        Class: 'md:mt-24'
-    },
-    {
-        image: getImgPath('/images/portfolio/fashion-photography.png'),
-        alt: 'Fashion Photography',
-        title: 'Fashion Photography',
-        slug: 'fashion-photography',
-        info: 'Fashion Portfolio Website',
-        demoUrl: 'https://youssefatef289.github.io/fashion-photography-main/',
-        technologies: ['HTML', 'CSS', 'JavaScript'],
-        Class: 'md:mt-0'
-    },
-    {
-        image: getImgPath('/images/portfolio/mariem el swefy.png'),
-        alt: 'Mariem El Swefy',
-        title: 'Mariem El Swefy',
-        slug: 'mariem-el-swefy',
-        info: 'Personal Portfolio',
-        demoUrl: '#',
-        technologies: ['HTML', 'CSS', 'JavaScript'],
-        Class: 'md:mt-24'
-    },
-    {
-        image: getImgPath('/images/portfolio/project-image04.png'),
-        alt: 'Project 04',
-        title: 'Project 04',
-        slug: 'project-04',
-        info: 'Web Project',
-        demoUrl: '#',
-        technologies: ['React', 'Next.js'],
         Class: 'md:mt-0'
     },
     {

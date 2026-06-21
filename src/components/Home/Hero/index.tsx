@@ -21,12 +21,14 @@ const Hero = () => {
               {t('Frontend Developer')}
             </span>
           </div>
-          <h1 className='text-midnight_text dark:text-white font-bold text-3xl md:text-4xl lg:text-5xl leading-tight'>
+          <h1 className='text-midnight_text font-bold text-3xl md:text-4xl lg:text-5xl leading-tight'>
             {t('hero.name')}
           </h1>
-          <p className='text-grey dark:text-white/70 text-base md:text-lg leading-relaxed'>
-            {t('hero.description')}
-          </p>
+          <div className='space-y-4 text-grey text-base md:text-lg leading-relaxed'>
+            <p>{t('hero.description.1')}</p>
+            <p>{t('hero.description.2')}</p>
+            <p>{t('hero.description.3')}</p>
+          </div>
           <div className='flex gap-4 flex-wrap pt-2'>
             <a
               href='#portfolio'

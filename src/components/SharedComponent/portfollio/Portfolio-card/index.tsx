@@ -1,144 +1,78 @@
 'use client'
 import React from 'react'
-import Slider from 'react-slick'
-import Image from 'next/image'
-import { Icon } from '@iconify/react'
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
+import { PerspectiveCarousel } from '@/components/ui/perspective-carousel'
 import { portfolioinfo } from '@/app/api/data'
 import { useLanguage } from '@/app/context/LanguageContext'
 
-// Technology icons mapping
-const techIcons: { [key: string]: string } = {
-  'React': 'logos:react',
-  'Next.js': 'logos:nextjs-icon',
-  'TypeScript': 'logos:typescript-icon',
-  'JavaScript': 'logos:javascript',
-  'HTML': 'logos:html-5',
-  'CSS': 'logos:css-3',
-  'Tailwind CSS': 'logos:tailwindcss-icon',
+const carouselItems = portfolioinfo
+  .filter((item) => item.demoUrl && item.demoUrl !== '#')
+  .map((item) => ({
+  src: item.image,
+  title: item.title,
+  alt: item.alt,
+  demoUrl: item.demoUrl,
+  demoLabel: undefined as string | undefined,
+}))
+
+function useCarouselSize() {
+  const [size, setSize] = React.useState({ slideWidth: 640, height: 820 })
+
+  React.useEffect(() => {
+    const update = () => {
+      const width = window.innerWidth
+
+      if (width < 640) {
+        setSize({ slideWidth: 320, height: 520 })
+      } else if (width < 1024) {
+        setSize({ slideWidth: 480, height: 680 })
+      } else {
+        setSize({ slideWidth: 640, height: 820 })
+      }
+    }
+
+    update()
+    window.addEventListener('resize', update)
+    return () => window.removeEventListener('resize', update)
+  }, [])
+
+  return size
 }
 
 const PortfolioCard = () => {
   const { t } = useLanguage()
-  const sliderRef = React.useRef<Slider | null>(null)
-  
-  const settings = {
-    autoplay: true,
-    autoplaySpeed: 3000,
-    dots: false,
-    arrows: false,
-    infinite: true,
-    speed: 800,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    cssEase: 'cubic-bezier(0.4, 0, 0.2, 1)',
-    pauseOnHover: true,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          speed: 600,
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-          speed: 600,
-        },
-      },
-    ],
-  }
+  const [activeIndex, setActiveIndex] = React.useState(1)
+  const { slideWidth, height } = useCarouselSize()
+
+  const items = React.useMemo(
+    () =>
+      carouselItems.map((item) => ({
+        ...item,
+        demoLabel: t('View Demo'),
+      })),
+    [t]
+  )
 
   return (
-    <div id='portfolio' className='dark:bg-darkmode pb-16'>
-      <div className='container mx-auto max-w-7xl px-4 slider-container'>
-        <div className='flex justify-end gap-3 mb-6'>
-          <button
-            type='button'
-            aria-label='Previous project'
-            onClick={() => sliderRef.current?.slickPrev()}
-            className='inline-flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 text-black dark:text-white dark:border-white/30 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors duration-300'>
-            <Icon icon='solar:arrow-left-linear' width={20} height={20} />
-          </button>
-          <button
-            type='button'
-            aria-label='Next project'
-            onClick={() => sliderRef.current?.slickNext()}
-            className='inline-flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 text-black dark:text-white dark:border-white/30 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors duration-300'>
-            <Icon icon='solar:arrow-right-linear' width={20} height={20} />
-          </button>
-        </div>
-        <Slider ref={sliderRef} {...settings}>
-          {portfolioinfo.map((item, index) => (
-            <div key={index} className='px-4'>
-              <div className='bg-white dark:bg-darkmode rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 h-full flex flex-col'>
-                {/* Image Container - Fixed Height */}
-                <div className='relative overflow-hidden rounded-t-xl' style={{ height: '300px' }}>
-                  <Image
-                    src={item.image}
-                    alt={item.alt}
-                    width={1200}
-                    height={800}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                    className='group-hover:scale-105 transition-transform duration-500'
-                  />
-                </div>
-                
-                {/* Content Container - Flex to fill remaining space */}
-                <div className='p-6 flex flex-col flex-1'>
-                  {/* Title */}
-                  <h4 className='text-2xl font-bold text-midnight_text dark:text-white mb-2 group-hover:text-primary transition-colors duration-300'>
-                    {item.title}
-                  </h4>
-                  
-                  {/* Description */}
-                  <p className='text-base font-normal text-grey dark:text-white/70 mb-4 flex-1'>
-                    {item.info}
-                  </p>
-                  
-                  {/* Technologies Icons - No background, no shadow */}
-                  {item.technologies && item.technologies.length > 0 && (
-                    <div className='flex flex-wrap gap-3 mb-4'>
-                      {item.technologies.map((tech, techIndex) => (
-                        <div
-                          key={techIndex}
-                          className='flex items-center'
-                          title={tech}>
-                          {techIcons[tech] ? (
-                            <Icon
-                              icon={techIcons[tech]}
-                              width={24}
-                              height={24}
-                              className='text-midnight_text dark:text-white opacity-80'
-                            />
-                          ) : (
-                            <span className='text-sm text-midnight_text dark:text-white/70'>{tech}</span>
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                  )}
-
-                  {/* Demo Button */}
-                  {item.demoUrl && item.demoUrl !== '#' && (
-                    <a
-                      href={item.demoUrl}
-                      target='_blank'
-                      rel='noopener noreferrer'
-                      onClick={(e) => e.stopPropagation()}
-                      className='inline-flex items-center gap-2 text-primary hover:text-blue-700 transition-colors duration-300 text-sm font-medium mt-auto'>
-                      <span>{t('View Demo')}</span>
-                      <Icon icon='solar:arrow-right-bold' width={16} height={16} />
-                    </a>
-                  )}
-                </div>
-              </div>
-            </div>
-          ))}
-        </Slider>
+    <div className='pb-16 -mt-2'>
+      <div className='container mx-auto max-w-[90rem] px-4'>
+        <PerspectiveCarousel
+          items={items}
+          activeIndex={activeIndex}
+          onActiveIndexChange={setActiveIndex}
+          defaultActiveIndex={1}
+          loop
+          autoplay
+          autoplayInterval={3500}
+          slideWidth={slideWidth}
+          inactiveScale={0.8}
+          rotationStep={40}
+          aspectClassName='aspect-[16/10]'
+          imageClassName='bg-transparent shadow-none'
+          className='text-midnight_text dark:text-white'
+          style={{ height }}
+          labelClassName='text-base font-semibold text-midnight_text dark:text-white'
+          controlsClassName='border-border/60 bg-white/80 dark:border-white/10 dark:bg-darklight/80'
+        />
       </div>
     </div>
   )

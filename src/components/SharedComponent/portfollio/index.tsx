@@ -7,7 +7,7 @@ const Portfolio = () => {
   const { t } = useLanguage()
   
   return (
-    <section id='portfolio' className='dark:bg-darkmode'>
+    <section id='portfolio' className='py-20'>
       <div className='text-center lg:px-0 px-8'>
         <div
           className='flex gap-2 items-center justify-center'
@@ -20,13 +20,13 @@ const Portfolio = () => {
           </span>
         </div>
         <h2
-          className='sm:text-4xl text-[28px] leading-tight font-bold text-midnight_text text-center pt-7 pb-4 md:w-4/6 w-full m-auto dark:text-white'
+          className='sm:text-4xl text-[28px] leading-tight font-bold text-midnight_text text-center pt-4 pb-2 md:w-4/6 w-full m-auto dark:text-white'
           data-aos='fade-left'
           data-aos-delay='200'
           data-aos-duration='1000'>
           {t('Explore my portfolio showcase')}
         </h2>
-        <div className='pb-14 inline-flex'>
+        <div className='pb-4 inline-flex'>
           <p className='text-base font-normal text-grey max-w-29 dark:text-white/50'>
             {t('portfolio.description')}
           </p>

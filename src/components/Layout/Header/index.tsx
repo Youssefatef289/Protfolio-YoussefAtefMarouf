@@ -1,22 +1,17 @@
 'use client'
-import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
 import { headerData } from '../Header/Navigation/menuData'
 import Logo from './Logo'
 import HeaderLink from '../Header/Navigation/HeaderLink'
 import MobileHeaderLink from '../Header/Navigation/MobileHeaderLink'
-import { useTheme } from 'next-themes'
+import HeaderSocialLinks from './HeaderSocialLinks'
 import { useLanguage } from '@/app/context/LanguageContext'
 
 const Header: React.FC = () => {
-  const pathUrl = usePathname()
-  const { theme, setTheme } = useTheme()
-  const { language, setLanguage, t } = useLanguage()
-
+  const { t } = useLanguage()
   const [navbarOpen, setNavbarOpen] = useState(false)
   const [sticky, setSticky] = useState(false)
-
   const mobileMenuRef = useRef<HTMLDivElement>(null)
 
   const handleScroll = () => {
@@ -42,8 +37,6 @@ const Header: React.FC = () => {
     }
   }, [navbarOpen])
 
-  const path = usePathname()
-
   useEffect(() => {
     if (navbarOpen) {
       document.body.style.overflow = 'hidden'
@@ -54,53 +47,28 @@ const Header: React.FC = () => {
 
   return (
     <header
-      className={`fixed h-24 top-0 py-1 z-50 w-full bg-white dark:bg-transparent transition-all ${
+      className={`fixed top-0 z-50 w-full border-b transition-all duration-300 ${
         sticky
-          ? 'shadow-lg dark:shadow-dark-md dark:bg-darklight!'
-          : 'shadow-none'
+          ? 'border-border/40 bg-white/95 shadow-sm backdrop-blur-md'
+          : 'border-transparent bg-white/80 backdrop-blur-sm'
       }`}>
-      <div className='container mx-auto max-w-6xl flex items-center justify-between p-6'>
+      <div className='container mx-auto flex h-[68px] max-w-6xl items-center justify-between px-4 sm:h-[72px] sm:px-6'>
         <Logo />
-        <nav className='hidden lg:flex grow items-center justify-center gap-6'>
+        <nav className='hidden lg:flex grow items-center justify-center gap-5'>
           {headerData.map((item, index) => (
             <HeaderLink key={index} item={item} />
           ))}
         </nav>
-        <div className='flex items-center gap-4'>
-          {/* Language Toggle Button */}
-          <button
-            aria-label='Toggle language'
-            onClick={() => setLanguage(language === 'en' ? 'ar' : 'en')}
-            className='flex h-8 w-8 items-center justify-center text-black dark:text-white duration-300 hover:text-primary'
-            title={language === 'en' ? 'Switch to Arabic' : 'التحويل إلى الإنجليزية'}>
-            <span className='text-sm font-semibold'>
-              {language === 'en' ? 'AR' : 'EN'}
-            </span>
-          </button>
-          <button
-            aria-label='Toggle theme'
-            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-            className='flex h-8 w-8 items-center justify-center text-black dark:text-white duration-300'>
-            <svg
-              viewBox='0 0 16 16'
-              className='hidden h-6 w-6 dark:block'
-              fill='currentColor'>
-              <path d='M4.50663 3.2267L3.30663 2.03337L2.36663 2.97337L3.55996 4.1667L4.50663 3.2267ZM2.66663 7.00003H0.666626V8.33337H2.66663V7.00003ZM8.66663 0.366699H7.33329V2.33337H8.66663V0.366699V0.366699ZM13.6333 2.97337L12.6933 2.03337L11.5 3.2267L12.44 4.1667L13.6333 2.97337ZM11.4933 12.1067L12.6866 13.3067L13.6266 12.3667L12.4266 11.1734L11.4933 12.1067ZM13.3333 7.00003V8.33337H15.3333V7.00003H13.3333ZM7.99996 3.6667C5.79329 3.6667 3.99996 5.46003 3.99996 7.6667C3.99996 9.87337 5.79329 11.6667 7.99996 11.6667C10.2066 11.6667 12 9.87337 12 7.6667C12 5.46003 10.2066 3.6667 7.99996 3.6667ZM7.33329 14.9667H8.66663V13H7.33329V14.9667ZM2.36663 12.36L3.30663 13.3L4.49996 12.1L3.55996 11.16L2.36663 12.36Z' />
-            </svg>
-            <svg
-              viewBox='0 0 23 23'
-              className='h-8 w-8 dark:hidden'
-              fill='currentColor'>
-              <path d='M16.6111 15.855C17.591 15.1394 18.3151 14.1979 18.7723 13.1623C16.4824 13.4065 14.1342 12.4631 12.6795 10.4711C11.2248 8.47905 11.0409 5.95516 11.9705 3.84818C10.8449 3.9685 9.72768 4.37162 8.74781 5.08719C5.7759 7.25747 5.12529 11.4308 7.29558 14.4028C9.46586 17.3747 13.6392 18.0253 16.6111 15.855Z' />
-            </svg>
-          </button>
+        <div className='flex items-center gap-3'>
+          <HeaderSocialLinks className='hidden sm:flex' />
+          <HeaderSocialLinks className='sm:hidden' compact />
           <button
             onClick={() => setNavbarOpen(!navbarOpen)}
-            className='block lg:hidden p-2 rounded-lg text-black dark:text-white'
+            className='block rounded-lg p-2 text-black transition-colors hover:bg-black/5 lg:hidden'
             aria-label='Toggle mobile menu'>
-            <span className='block w-6 h-0.5 bg-current'></span>
-            <span className='block w-6 h-0.5 bg-current mt-1.5'></span>
-            <span className='block w-6 h-0.5 bg-current mt-1.5'></span>
+            <span className='block h-0.5 w-5 bg-current'></span>
+            <span className='mt-1.5 block h-0.5 w-5 bg-current'></span>
+            <span className='mt-1.5 block h-0.5 w-5 bg-current'></span>
           </button>
         </div>
       </div>
@@ -110,13 +78,11 @@ const Header: React.FC = () => {
 
       <div
         ref={mobileMenuRef}
-        className={`lg:hidden fixed top-0 right-0 h-full w-full bg-white dark:bg-darkmode shadow-lg transform transition-transform duration-300 max-w-xs ${
+        className={`lg:hidden fixed top-0 right-0 h-full w-full bg-white shadow-lg transform transition-transform duration-300 max-w-xs ${
           navbarOpen ? 'translate-x-0' : 'translate-x-full'
         } z-50`}>
         <div className='flex items-center justify-between p-4'>
-          <h2 className='text-lg font-bold text-midnight_text dark:text-white'>
-            {t('Menu')}
-          </h2>
+          <h2 className='text-lg font-bold text-midnight_text'>{t('Menu')}</h2>
           <button
             onClick={() => setNavbarOpen(false)}
             aria-label='Close mobile menu'>
@@ -124,8 +90,7 @@ const Header: React.FC = () => {
               xmlns='http://www.w3.org/2000/svg'
               width='24'
               height='24'
-              viewBox='0 0 24 24'
-              className='dark:text-white'>
+              viewBox='0 0 24 24'>
               <path
                 fill='none'
                 stroke='currentColor'
@@ -139,8 +104,15 @@ const Header: React.FC = () => {
         </div>
         <nav className='flex flex-col items-start p-4'>
           {headerData.map((item, index) => (
-            <MobileHeaderLink key={index} item={item} onLinkClick={() => setNavbarOpen(false)} />
+            <MobileHeaderLink
+              key={index}
+              item={item}
+              onLinkClick={() => setNavbarOpen(false)}
+            />
           ))}
+          <div className='mt-6 border-t border-border/30 pt-6'>
+            <HeaderSocialLinks />
+          </div>
         </nav>
       </div>
     </header>
