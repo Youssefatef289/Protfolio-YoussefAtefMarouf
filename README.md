@@ -1,4 +1,4 @@
-# Protfolio-YoussefAtefMarouf - Personal Portfolio Website
+# YoussefAtefMarouf - Personal Website
 
 A modern, responsive personal portfolio website built with Next.js 15, React 19, and TypeScript. Features a beautiful UI with dark mode support, multilingual support (English/Arabic), and smooth animations.
 

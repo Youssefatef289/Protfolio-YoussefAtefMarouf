@@ -1,5 +1,6 @@
 'use client'
 import React, { useEffect, useState } from 'react'
+import Image from 'next/image'
 import { Icon } from '@iconify/react'
 import { Skills as SkillsData } from '@/app/api/data'
 import { useLanguage } from '@/app/context/LanguageContext'
@@ -61,12 +62,22 @@ const Skills = () => {
               {/* Icon and Name */}
               <div className='flex items-center gap-3 mb-4'>
                 <div className='flex-shrink-0'>
-                  <Icon
-                    icon={skill.icon}
-                    width={32}
-                    height={32}
-                    className='text-midnight_text dark:text-white'
-                  />
+                  {skill.icon.startsWith('/') ? (
+                    <Image
+                      src={skill.icon}
+                      alt={skill.name}
+                      width={32}
+                      height={32}
+                      className='object-contain'
+                    />
+                  ) : (
+                    <Icon
+                      icon={skill.icon}
+                      width={32}
+                      height={32}
+                      className='text-midnight_text dark:text-white'
+                    />
+                  )}
                 </div>
                 <h3 className='text-lg font-semibold text-midnight_text dark:text-white'>
                   {skill.name}

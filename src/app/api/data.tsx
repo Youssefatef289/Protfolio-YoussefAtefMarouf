@@ -37,7 +37,7 @@ export const Progress = [
 
 export const Skills = [
     { name: 'React', icon: 'logos:react', progress: 90 },
-    { name: 'Next.js', icon: 'logos:nextjs-icon', progress: 85 },
+    { name: 'WordPress', icon: '/images/skills/wordpress.png', progress: 85 },
     { name: 'TypeScript', icon: 'logos:typescript-icon', progress: 80 },
     { name: 'JavaScript', icon: 'logos:javascript', progress: 90 },
     { name: 'HTML5', icon: 'logos:html-5', progress: 95 },
@@ -66,6 +66,72 @@ export const Servicebox = [
 
 export const portfolioinfo = [
     {
+        image: getImgPath('/images/projects/al-mustafa-meats/Home Page - Desktop.png'),
+        alt: 'Al-Mustafa Meats',
+        title: 'Al-Mustafa Meats',
+        slug: 'al-mustafa-meats',
+        info: 'Food delivery & grocery ordering experience',
+        demoUrl: '#',
+        technologies: ['Next.js', 'UI/UX', 'Responsive Design'],
+        Class: 'md:mt-0',
+        description: 'A modern online ordering experience for a meat and grocery brand, focused on speed, clarity, and mobile-first usability.',
+        category: 'Commercial',
+        location: 'Cairo, Egypt',
+        status: 'Available',
+        price: 'Starting from $50,000',
+        highlights: ['Fast product browsing', 'Mobile-first checkout', 'Clear category organization'],
+        gallery: [
+            getImgPath('/images/projects/al-mustafa-meats/Home Page - Desktop.png'),
+            getImgPath('/images/projects/al-mustafa-meats/Products Page - Desktop.png'),
+            getImgPath('/images/projects/al-mustafa-meats/Checkout - Delivery Details - Mobile (2).png'),
+            getImgPath('/images/projects/al-mustafa-meats/Shopping Cart - Mobile (2).png')
+        ]
+    },
+    {
+        image: getImgPath('/images/projects/el-geheny-real-estate-development/El Geheny Real Estate Development – Home Page.png'),
+        alt: 'El Geheny Real Estate Development',
+        title: 'El Geheny Real Estate',
+        slug: 'el-geheny-real-estate-development',
+        info: 'Real estate company platform with inquiry flow',
+        demoUrl: '#',
+        technologies: ['Next.js', 'Dashboard UI', 'Forms'],
+        Class: 'md:mt-24',
+        description: 'A polished real estate website with project detail pages, inquiry forms, and dashboard views tailored for property buyers and administrators.',
+        category: 'Residential',
+        location: 'New Cairo, Egypt',
+        status: 'Available',
+        price: 'Starting from $2,500,000',
+        highlights: ['Project showcase', 'Inquiry management', 'Admin dashboard experience'],
+        gallery: [
+            getImgPath('/images/projects/el-geheny-real-estate-development/El Geheny Real Estate Development – Home Page.png'),
+            getImgPath('/images/projects/el-geheny-real-estate-development/El Geheny Real Estate Development – Project Details.png'),
+            getImgPath('/images/projects/el-geheny-real-estate-development/El Geheny Real Estate Development – Inquiry Form.png'),
+            getImgPath('/images/projects/el-geheny-real-estate-development/El Geheny Real Estate Development – Customer Inquiries Dashboard.png')
+        ]
+    },
+    {
+        image: getImgPath('/images/projects/mazara-al-hfny/Home Page - Desktop.png'),
+        alt: 'Mazara Al Hfny',
+        title: 'Mazara Al Hfny',
+        slug: 'mazara-al-hfny',
+        info: 'Modern marketplace for products and order tracking',
+        demoUrl: '#',
+        technologies: ['Next.js', 'E-commerce UI', 'Mobile UX'],
+        Class: 'md:mt-0',
+        description: 'A clean and smooth shopping interface designed for product discovery, cart flow, and WhatsApp-based order confirmation.',
+        category: 'Commercial',
+        location: 'Giza, Egypt',
+        status: 'Available',
+        price: 'Starting from $75,000',
+        highlights: ['Product-focused landing page', 'Order confirmation flow', 'Mobile-friendly interaction'],
+        gallery: [
+            getImgPath('/images/projects/mazara-al-hfny/Home Page - Desktop.png'),
+            getImgPath('/images/projects/mazara-al-hfny/Products Page - Desktop.png'),
+            getImgPath('/images/projects/mazara-al-hfny/WhatsApp Order Summary.png'),
+            getImgPath('/images/projects/mazara-al-hfny/Checkout - Delivery Details - Mobile (2).png')
+        ]
+    },
+    {
         image: getImgPath('/images/portfolio/Brilliant Home.png'),
         alt: 'Brilliant Home',
         title: 'Brilliant Home',
@@ -73,7 +139,11 @@ export const portfolioinfo = [
         info: 'Interior Design & Furniture Landing Page',
         demoUrl: 'https://brilliant-home.vercel.app/',
         technologies: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS'],
-        Class: 'md:mt-0'
+        Class: 'md:mt-0',
+        category: 'Residential',
+        location: 'Dubai, UAE',
+        status: 'Available',
+        price: 'Starting from $850,000'
     },
     {
         image: getImgPath('/images/portfolio/Al Fadi.png'),
@@ -83,7 +153,11 @@ export const portfolioinfo = [
         info: 'Wooden Doors & Furniture Company Website',
         demoUrl: 'https://al-fadi.vercel.app/',
         technologies: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS'],
-        Class: 'md:mt-24'
+        Class: 'md:mt-24',
+        category: 'Commercial',
+        location: 'Riyadh, Saudi Arabia',
+        status: 'Available',
+        price: 'Starting from $120,000'
     },
     {
         image: getImgPath('/images/portfolio/Emaar.png'),
@@ -93,7 +167,11 @@ export const portfolioinfo = [
         info: 'Real Estate Development & Marketing Website',
         demoUrl: 'https://emaar-company.vercel.app/',
         technologies: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS'],
-        Class: 'md:mt-0'
+        Class: 'md:mt-0',
+        category: 'Residential',
+        location: 'Dubai, UAE',
+        status: 'Under Construction',
+        price: 'Starting from $1,800,000'
     },
     {
         image: getImgPath('/images/portfolio/Al-Geheny Real Estate Development.png'),
@@ -103,7 +181,11 @@ export const portfolioinfo = [
         info: 'Real Estate Development Company Website',
         demoUrl: 'https://el-geheny.vercel.app/',
         technologies: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS'],
-        Class: 'md:mt-24'
+        Class: 'md:mt-24',
+        category: 'Residential',
+        location: 'New Cairo, Egypt',
+        status: 'Sold Out',
+        price: 'Starting from $3,200,000'
     },
     {
         image: getImgPath('/images/portfolio/Al-Umara Real Estate Development.png'),
@@ -113,7 +195,11 @@ export const portfolioinfo = [
         info: 'Real Estate Development & Marketing Website',
         demoUrl: 'https://al-umaraa-for-development.vercel.app/',
         technologies: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS'],
-        Class: 'md:mt-0'
+        Class: 'md:mt-0',
+        category: 'Residential',
+        location: 'Cairo, Egypt',
+        status: 'Available',
+        price: 'Starting from $1,500,000'
     },
     {
         image: getImgPath('/images/portfolio/Al Hafni Farms.png'),
@@ -123,7 +209,11 @@ export const portfolioinfo = [
         info: 'Agricultural Products & Farms Website',
         demoUrl: 'https://mzraa-al-hfny.vercel.app/',
         technologies: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS'],
-        Class: 'md:mt-24'
+        Class: 'md:mt-24',
+        category: 'Administrative',
+        location: 'Alexandria, Egypt',
+        status: 'Available',
+        price: 'Starting from $200,000'
     },
     {
         image: getImgPath('/images/portfolio/Macello Meat butcher.png'),
@@ -133,7 +223,11 @@ export const portfolioinfo = [
         info: 'Meat & Butcher Shop E-commerce Website',
         demoUrl: 'https://macello.vercel.app/',
         technologies: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS'],
-        Class: 'md:mt-0'
+        Class: 'md:mt-0',
+        category: 'Commercial',
+        location: 'Cairo, Egypt',
+        status: 'Available',
+        price: 'Starting from $80,000'
     },
     {
         image: getImgPath('/images/portfolio/Sky-Block.png'),
@@ -143,7 +237,11 @@ export const portfolioinfo = [
         info: 'Building Materials Platform',
         demoUrl: 'https://sky-block-mu.vercel.app/',
         technologies: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS'],
-        Class: 'md:mt-0'
+        Class: 'md:mt-0',
+        category: 'Administrative',
+        location: 'Cairo, Egypt',
+        status: 'Available',
+        price: 'Starting from $150,000'
     },
     {
         image: getImgPath('/images/portfolio/QAF BookStore (1).png'),
@@ -153,7 +251,11 @@ export const portfolioinfo = [
         info: 'Online Book Store',
         demoUrl: 'https://qafbookstore.github.io/Book-store-QAF/',
         technologies: ['HTML', 'CSS', 'JavaScript'],
-        Class: 'md:mt-24'
+        Class: 'md:mt-24',
+        category: 'Commercial',
+        location: 'Alexandria, Egypt',
+        status: 'Available',
+        price: 'Starting from $45,000'
     },
     {
         image: getImgPath('/images/portfolio/Mix-Kitcien.png'),
@@ -163,7 +265,11 @@ export const portfolioinfo = [
         info: 'Luxury Kitchens & Furniture',
         demoUrl: 'https://mix-kitchens.vercel.app/',
         technologies: ['React', 'Next.js', 'TypeScript'],
-        Class: 'md:mt-0'
+        Class: 'md:mt-0',
+        category: 'Residential',
+        location: 'Dubai, UAE',
+        status: 'Available',
+        price: 'Starting from $95,000'
     },
     {
         image: getImgPath('/images/portfolio/Lithioo Perfumes.png'),
@@ -173,7 +279,11 @@ export const portfolioinfo = [
         info: 'Perfume E-commerce Store',
         demoUrl: 'https://lithioo-for-perfumes.vercel.app/',
         technologies: ['React', 'Next.js', 'TypeScript'],
-        Class: 'md:mt-24'
+        Class: 'md:mt-24',
+        category: 'Commercial',
+        location: 'Riyadh, Saudi Arabia',
+        status: 'Available',
+        price: 'Starting from $65,000'
     },
     {
         image: getImgPath('/images/portfolio/farouja.png'),
@@ -183,7 +293,11 @@ export const portfolioinfo = [
         info: 'Poultry Products E-commerce',
         demoUrl: 'https://farouja.vercel.app/',
         technologies: ['React', 'Next.js', 'TypeScript'],
-        Class: 'md:mt-0'
+        Class: 'md:mt-0',
+        category: 'Commercial',
+        location: 'Cairo, Egypt',
+        status: 'Available',
+        price: 'Starting from $55,000'
     },
     {
         image: getImgPath('/images/portfolio/Al-Saad Company.png'),
@@ -193,7 +307,11 @@ export const portfolioinfo = [
         info: 'Safety & Security Solutions',
         demoUrl: 'https://youssefatef289.github.io/landing-page-saadalhussan/',
         technologies: ['HTML', 'CSS', 'JavaScript'],
-        Class: 'md:mt-24'
+        Class: 'md:mt-24',
+        category: 'Administrative',
+        location: 'Riyadh, Saudi Arabia',
+        status: 'Available',
+        price: 'Starting from $180,000'
     },
     {
         image: getImgPath('/images/portfolio/Herb Wonders.png'),
@@ -203,7 +321,11 @@ export const portfolioinfo = [
         info: 'Herbs & Spices Store',
         demoUrl: 'https://youssefatef289.github.io/Herb----Wonders/',
         technologies: ['HTML', 'CSS', 'JavaScript'],
-        Class: 'md:mt-0'
+        Class: 'md:mt-0',
+        category: 'Commercial',
+        location: 'Cairo, Egypt',
+        status: 'Available',
+        price: 'Starting from $40,000'
     },
     {
         image: getImgPath('/images/portfolio/touch-furniture.png'),
@@ -213,7 +335,11 @@ export const portfolioinfo = [
         info: 'Modern Furniture E-commerce',
         demoUrl: 'https://touch-furniture.vercel.app/',
         technologies: ['React', 'Next.js', 'TypeScript'],
-        Class: 'md:mt-24'
+        Class: 'md:mt-24',
+        category: 'Residential',
+        location: 'Dubai, UAE',
+        status: 'Available',
+        price: 'Starting from $110,000'
     },
     {
         image: getImgPath('/images/portfolio/profile-furniture.png'),
@@ -223,6 +349,12 @@ export const portfolioinfo = [
         info: 'Furniture & Antiques Store',
         demoUrl: 'https://profile-for-furniture-and-antiques.vercel.app/',
         technologies: ['React', 'Next.js', 'TypeScript'],
-        Class: 'md:mt-0'
+        Class: 'md:mt-0',
+        category: 'Residential',
+        location: 'Cairo, Egypt',
+        status: 'Available',
+        price: 'Starting from $90,000'
     },
 ]
+
+export const getPortfolioProjectBySlug = (slug: string) => portfolioinfo.find((item) => item.slug === slug);
