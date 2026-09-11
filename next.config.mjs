@@ -1,26 +1,19 @@
 /** @type {import('next').NextConfig} */
 
-<<<<<<< HEAD
-const isProd = process.env.NODE_ENV === "production";
-const basePath = isProd ? `/venus-nextjs` : "";
+const isGitHubPages = process.env.GITHUB_ACTIONS === "true";
+const basePath = isGitHubPages ? "/Protfolio-YoussefAtefMarouf" : "";
 
 const nextConfig = {
-  basePath,
-  assetPrefix: basePath,
-=======
-const nextConfig = {
   output: "export",
->>>>>>> origin/main
+  basePath,
+  assetPrefix: basePath ? `${basePath}/` : undefined,
   images: {
     unoptimized: true,
   },
   trailingSlash: true,
-<<<<<<< HEAD
   env: {
     NEXT_PUBLIC_BASE_PATH: basePath,
   },
-=======
->>>>>>> origin/main
 };
 
 export default nextConfig;

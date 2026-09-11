@@ -55,7 +55,25 @@ export const Servicebox = [
     },
 ]
 
-export const portfolioinfo = [
+export type PortfolioProject = {
+    image: string;
+    alt: string;
+    title: string;
+    slug: string;
+    info: string;
+    demoUrl?: string;
+    technologies?: string[];
+    description?: string;
+    category?: string;
+    location?: string;
+    status?: string;
+    price?: string;
+    highlights?: string[];
+    gallery?: string[];
+    Class?: string;
+};
+
+export const portfolioinfo: PortfolioProject[] = [
     {
         image: getImgPath('/images/portfolio/Al Hafni Farms.png'),
         alt: 'Al Hafni Farms',
@@ -127,3 +145,6 @@ export const portfolioinfo = [
         Class: 'md:mt-0'
     },
 ]
+
+export const getPortfolioProjectBySlug = (slug: string) =>
+    portfolioinfo.find((project) => project.slug === slug);
