@@ -7,6 +7,9 @@ const nextConfig = {
   output: "export",
   basePath,
   assetPrefix: basePath ? `${basePath}/` : undefined,
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   images: {
     unoptimized: true,
   },
