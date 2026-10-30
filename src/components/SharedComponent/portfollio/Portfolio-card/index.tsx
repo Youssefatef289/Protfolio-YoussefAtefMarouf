@@ -8,18 +8,6 @@ import 'slick-carousel/slick/slick-theme.css'
 import { portfolioinfo } from '@/app/api/data'
 import { useLanguage } from '@/app/context/LanguageContext'
 
-// Technology icons mapping
-const techIcons: { [key: string]: string } = {
-  'React': 'logos:react',
-  'Next.js': 'logos:nextjs-icon',
-  'TypeScript': 'logos:typescript-icon',
-  'JavaScript': 'logos:javascript',
-  'HTML': 'logos:html-5',
-  'CSS': 'logos:css-3',
-  'Tailwind CSS': 'logos:tailwindcss-icon',
-  'WordPress': 'logos:wordpress-icon',
-}
-
 const PortfolioCard = () => {
   const { t, language } = useLanguage()
   const sliderRef = useRef<Slider | null>(null)
@@ -60,49 +48,46 @@ const PortfolioCard = () => {
   return (
     <div className='dark:bg-darkmode pb-16 slider-container'>
       <div className='container mx-auto max-w-7xl px-4 relative'>
-        <Slider ref={sliderRef} {...settings}>
+        <Slider key={language} ref={sliderRef} {...settings}>
           {portfolioinfo.map((item, index) => (
             <div key={index} className='px-4'>
-              <div className='group bg-white dark:bg-darkmode rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 h-full flex flex-col'>
-                {/* Image Container - Fixed Height */}
-                <div className='relative overflow-hidden rounded-t-xl' style={{ height: '300px' }}>
+              <div className='group bg-white dark:bg-darkmode rounded-xl overflow-hidden shadow-none border border-slate-100 dark:border-white/5 h-full flex flex-col'>
+                {/* Image Container - Square Aspect Ratio (1 / 1), No Background, No Border/Padding/Radius, Object-Fit Contain */}
+                <div
+                  className='relative w-full aspect-square overflow-hidden bg-transparent p-0 border-0 rounded-none'
+                  style={{ aspectRatio: '1 / 1' }}>
                   {item.demoUrl && item.demoUrl !== '#' ? (
                     <a
                       href={item.demoUrl}
                       target='_blank'
                       rel='noopener noreferrer'
                       aria-label={`${item.title} - ${t('View Project')}`}
-                      className='absolute inset-0 block'>
+                      className='block w-full h-full bg-transparent p-0 border-0 rounded-none'>
                       <Image
                         src={item.image}
                         alt={item.alt}
                         width={1200}
-                        height={800}
+                        height={1200}
                         sizes='(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw'
                         quality={100}
-                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                        className='group-hover:scale-105 transition-transform duration-500'
+                        style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+                        className='w-full h-full object-contain p-0 border-0 rounded-none group-hover:scale-105 transition-transform duration-500'
                       />
-                      {/* Hover overlay */}
-                      <div aria-hidden='true' className='absolute inset-0 bg-darklight/40 dark:bg-darkmode/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center'>
-                        <span className='inline-flex items-center gap-2 text-white bg-primary rounded-full px-4 py-2 text-sm font-semibold shadow-lg'>
-                          <Icon icon='solar:arrow-right-bold' width={16} height={16} className='rtl-flip' />
-                          {t('View Project')}
-                        </span>
-                      </div>
                     </a>
                   ) : (
                     <Image
                       src={item.image}
                       alt={item.alt}
                       width={1200}
-                      height={800}
+                      height={1200}
                       sizes='(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw'
-                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                      quality={100}
+                      style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+                      className='w-full h-full object-contain p-0 border-0 rounded-none'
                     />
                   )}
                 </div>
-                
+
                 {/* Content Container - Flex to fill remaining space */}
                 <div className='p-6 flex flex-col flex-1'>
                   {/* Title */}
@@ -119,34 +104,11 @@ const PortfolioCard = () => {
                       {item.title}
                     </h4>
                   )}
-                  
+
                   {/* Description */}
                   <p className='text-base font-normal text-grey dark:text-white/70 mb-4 flex-1'>
                     {item.info}
                   </p>
-                  
-                  {/* Technologies Icons - No background, no shadow */}
-                  {item.technologies && item.technologies.length > 0 && (
-                    <div className='flex flex-wrap gap-3 mb-4'>
-                      {item.technologies.map((tech, techIndex) => (
-                        <div
-                          key={techIndex}
-                          className='flex items-center'
-                          title={tech}>
-                          {techIcons[tech] ? (
-                            <Icon
-                              icon={techIcons[tech]}
-                              width={24}
-                              height={24}
-                              className='text-midnight_text dark:text-white opacity-80'
-                            />
-                          ) : (
-                            <span className='text-sm text-midnight_text dark:text-white/70'>{tech}</span>
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                  )}
 
                   {/* Demo Button */}
                   {item.demoUrl && item.demoUrl !== '#' && (

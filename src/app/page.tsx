@@ -5,8 +5,8 @@ import Progresswork from '@/components/Home/WorkProgress';
 import Services from '@/components/Home/Services';
 import Skills from '@/components/Home/Skills';
 import Portfolio from '@/components/SharedComponent/portfollio'
-import Testimonial from '@/components/SharedComponent/Testimonial'
 import Contact from '@/components/Home/Contact'
+
 export const metadata: Metadata = {
   title: "Youssef Atef | Frontend Developer",
 };
@@ -19,7 +19,6 @@ export default function Home() {
       <Services />
       <Skills />
       <Portfolio />
-      <Testimonial />
       <Contact />
     </main>
   )

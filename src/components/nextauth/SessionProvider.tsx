@@ -7,11 +7,11 @@ export default function SessionProviderComp({
   session,
 }: {
   children: React.ReactNode;
-  session: any;
+  session?: unknown;
 }) {
   return (
     <>
-      <SessionProvider session={session}>{children}</SessionProvider>
+      <SessionProvider session={session as any}>{children}</SessionProvider>
     </>
   );
 }

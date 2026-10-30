@@ -2,7 +2,7 @@ import React from 'react'
 import { count } from '@/app/api/data'
 import Image from 'next/image'
 
-const Counter = ({ isColorMode }: { isColorMode: Boolean }) => {
+const Counter = ({ isColorMode }: { isColorMode: boolean }) => {
   return (
     <section
       className={` ${

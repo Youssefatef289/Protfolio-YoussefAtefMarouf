@@ -49,36 +49,38 @@ const Projects = () => {
               key={index}
               href={`/portfolio/${item.slug}`}
               className='group block'>
-              <div className='relative overflow-hidden rounded-2xl bg-white shadow-sm transition-all duration-500 hover:shadow-xl hover:-translate-y-1 dark:bg-darklight'>
-                <div className='relative'>
+              <div className='relative overflow-hidden rounded-2xl bg-white shadow-none border border-slate-100 dark:border-white/5 transition-all duration-500 dark:bg-darklight flex flex-col h-full'>
+                <div
+                  className='relative w-full aspect-square overflow-hidden bg-transparent p-0 border-0 rounded-none'
+                  style={{ aspectRatio: '1 / 1' }}>
                   <Image
                     src={item.image}
                     alt={item.alt}
                     width={800}
-                    height={600}
-                    className='w-full h-48 object-cover transition-transform duration-700 group-hover:scale-105'
+                    height={800}
+                    style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+                    className='w-full h-full object-contain p-0 border-0 rounded-none transition-transform duration-700 group-hover:scale-105'
                   />
-                  <div className='absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500' />
                   {item.category && (
                     <span className='absolute top-4 right-4 rounded-full bg-primary/90 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm'>
                       {item.category}
                     </span>
                   )}
                 </div>
-                <div className='p-6'>
+                <div className='p-6 flex flex-col flex-1'>
                   <h4 className='text-xl font-bold text-midnight_text transition-colors duration-300 group-hover:text-primary dark:text-white'>
                     {item.title}
                   </h4>
-                  <p className='mt-2 text-secondary text-sm leading-relaxed dark:text-white/70'>
+                  <p className='mt-2 text-secondary text-sm leading-relaxed dark:text-white/70 flex-1'>
                     {item.info}
                   </p>
                   <div className='mt-4 flex items-center text-sm font-semibold text-primary'>
-                    <span>View Project</span>
+                    <span>{t('View Project')}</span>
                     <Icon
                       icon='solar:arrow-right-bold'
                       width={18}
                       height={18}
-                      className='ml-2 transition-transform duration-300 group-hover:translate-x-1'
+                      className='ml-2 rtl-flip transition-transform duration-300 group-hover:translate-x-1'
                     />
                   </div>
                 </div>
@@ -96,7 +98,7 @@ const Projects = () => {
               icon='solar:arrow-right-bold'
               width={18}
               height={18}
-              className='ml-2'
+              className='ml-2 rtl-flip'
             />
           </Link>
         </div>
